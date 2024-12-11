@@ -108,7 +108,7 @@ HIGHLIGHT                              *lsp-lens-docs-lsp-lens.nvim-highlight*
 
 >lua
     {
-      LspLens = { link = "Comment" },
+      LspLens = { link = "LspCodeLens" },
     }
 <
 
