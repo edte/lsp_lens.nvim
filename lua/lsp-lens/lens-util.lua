@@ -93,6 +93,8 @@ local function create_string(counting)
         text = text == "" and formatted or text .. cfg.separator .. formatted
     end
 
+    local has = false
+
     if counting.reference then
         append_with(counting.reference, cfg.sections.references)
 
@@ -101,6 +103,7 @@ local function create_string(counting)
             table.insert(opts, { '󰌹 ', 'SymbolUsageRef' })
             table.insert(opts, { cfg.decorator(text), "SymbolUsageContent" })
             table.insert(opts, { '', 'SymbolUsageRounding' })
+            has = true
         end
     end
 
@@ -121,6 +124,9 @@ local function create_string(counting)
             -- print(formatted)
         end
 
+        if has then
+            table.insert(opts, { ' ', 'SymbolUsageRounding' })
+        end
 
         table.insert(opts, { '', 'SymbolUsageRounding' })
         table.insert(opts, { ' ', 'SymbolUsageImpl' })
